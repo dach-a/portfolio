@@ -1,39 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>dach-a | portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenCity CCTV Solutions</title>
+    <style>
+        :root {
+            --primary: #2C5F2D;
+            --secondary: #004B8D;
+            --light: #F4F4F4;
+        }
+        * { box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { margin: 0; line-height: 1.6; }
+        
+        /* Header */
+        header {
+            background: var(--primary);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { height: 50px; } /* Add logo here */
+        nav a { color: white; text-decoration: none; margin-left: 2rem; }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('cctv-bg.jpg');
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        /* Product Grid */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        /* Contact Form */
+        .contact-section {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Review Form */
+        .rating { color: gold; font-size: 1.5rem; }
+
+        /* Mobile Menu */
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .mobile-menu { display: block; }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>dach-a</h1>
-    <p>Full Stack Developer</p>
-  </header>
+    <header>
+        <img src="logo.png" alt="GreenCity CCTV Logo" class="logo">
+        <nav>
+            <a href="#products">Products</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <button class="cta">Call +233 53 050 5575</button>
+    </header>
 
-  <section id="about">
-    <h2>whois dach-a</h2>
-    <p>I’m a passionate developer currently focused on building MERN stack applications and crafting clean frontends with React and Next.js.</p>
-  </section>
+    <section class="hero">
+        <h1>Professional CCTV Solutions</h1>
+        <p>24/7 Security Monitoring • Certified Installations</p>
+    </section>
 
-  <section id="projects">
-    <h2>mini-projects</h2>
-    <ul>
-      <li><strong>wireblog</strong> – Cybersecurity blogging and [link](#)</li>
-      <li><strong>stratus</strong> – Reporting live cyber incidents and [link](#)</li>
-    </ul>
-  </section>
+    <section id="reviews" class="contact-section">
+        <h2>Customer Reviews</h2>
+        <form>
+            <div class="rating">★★★★★</div>
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Your experience..." rows="4"></textarea>
+            <button type="submit">Submit Review</button>
+        </form>
+    </section>
 
-  <section id="contact">
-    <h2>contact me</h2>
-    <p>Email: <a href="mailto:dachelakyerefi@icloud.com">dachelakyerefi@icloud.com</a></p>
-    <p>GitHub: <a href="https://github.com/dach-a" target="_blank">github.com/dach-a</a></p>
-    <p>LinkedIn: <a href="#" target="_blank">linkedin.com/in/dachelakyerefi</a></p>
-  </section>
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <address>
+            Abdul Diouf St, Osu, Accra<br>
+            GA-051-6644<br>
+            Email: nanolinksgh@gmail.com
+        </address>
+        <div class="map">Google Maps Embed</div>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 dach-a. All rights reserved.</p>
-  </footer>
+    <footer style="background: var(--primary); color: white; padding: 2rem; text-align: center;">
+        © 2025 ((( N4N0 ))) • All rights reserved
+    </footer>
 </body>
 </html>
