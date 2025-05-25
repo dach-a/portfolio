@@ -176,18 +176,21 @@
             });
 
             // API response with quote here
-            const response = await fetch(`https://api.quotable.io/quotes?${params}&_=${Date.now()}`);
+            const response = await fetch(`https://api.quotable.io/random?tags=technology,famous-quotes&maxLength=120&_=${Date.now()}`);
             const data = await response.json();
 
             // Quote extracted from response here
             const quotes = data.results;
+            if (!quotes || quotes.length === 0) throw new Error("No quotes found.");
             const quote = quotes[Math.floor(Math.random() * quotes.length)];
+            console.log("Selected Quote:", quote);
 
             // DOM Element updated to show quote
-            quoteElement.textContent = `"${quote.content}" - ${quote.author} (${Date.now()})`;
+            quoteElement.textContent = `"${quote.content}" - ${quote.author}`;
 
             // Apply scroll animation
             quoteElement.classList.add("scroll-in");
+            void quoteElement.offsetWidth; 
             setTimeout(() => {
                 quoteElement.classList.remove("scroll-out");
             }, 45000);
