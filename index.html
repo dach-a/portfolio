@@ -175,7 +175,7 @@
             });
 
             // API response with quote here
-            const response = await fetch(`https://api.quotable.io/quotes/random?${params}`);
+            const response = await fetch(`https://api.quotable.io/quotes?limit=5${params}`);
             const data = await response.json();
 
             // Quote extracted from response here
