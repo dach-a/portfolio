@@ -107,9 +107,14 @@
         .links a:hover {
           color: var(--primary);
         }
-
+        .scroll-out {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        
         .scroll-in {
-          animation: scrollFadeIn 1s ease-in-out;
+          opacity: 1;
+          transform: translateY(0);
         }
 
         @keyframes scrollFadeIn {
@@ -185,15 +190,17 @@
             const quote = quotes[Math.floor(Math.random() * quotes.length)];
             console.log("Selected Quote:", quote);
 
-            // DOM Element updated to show quote
-            quoteElement.textContent = `"${quote.content}" - ${quote.author}`;
-
             // Apply scroll animation
-            quoteElement.classList.add("scroll-in");
-            void quoteElement.offsetWidth; 
+            quoteElement.classList.add("scroll-out");
+             
             setTimeout(() => {
+                // DOM Element updated to show quote
+                quoteElement.textContent = `"${quote.content}" - ${quote.author}`;
                 quoteElement.classList.remove("scroll-out");
-            }, 45000);
+
+                void quoteElement.offsetWidth;
+                quoteElement.classList.add("scroll-in");
+            }, 1000);
         }catch(error){
             console.error("Error fetching quote:", error);
             quoteElement.textContent = "Great minds discuss ideas; average minds discuss events; small minds discuss people. - Eleanor Roosevelt";
