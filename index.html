@@ -108,6 +108,22 @@
           color: var(--primary);
         }
 
+        .scroll-in {
+          animation: scrollFadeIn 1s ease-in-out;
+        }
+
+        @keyframes scrollFadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+
         /* Mobile Menu */
         @media (max-width: 768px) {
             nav { flex-direction: column; }
