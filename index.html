@@ -186,7 +186,6 @@
 
             // Quote extracted from response here
             const quotes = data.results;
-            if (!quotes || quotes.length === 0) throw new Error("No quotes found.");
             const quote = quotes[Math.floor(Math.random() * quotes.length)];
             console.log("Selected Quote:", quote);
 
