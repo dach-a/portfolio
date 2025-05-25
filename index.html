@@ -22,6 +22,7 @@
             position: fixed;
             left: 0;
             right: 0;
+            width: 50px;
             height: 100vh;
             transform: rotate(-90deg) translateX(-100%);
             transform-origin: left top;
@@ -31,6 +32,15 @@
             justify-content: space-between;
             align-items: center;
         }
+        
+        .name-box, 
+        .scroll-box, 
+        .location-box {
+              transform: rotate(90deg);
+              width: 100vh;
+              text-align: center;
+        }
+
 
         h3 { color: var(--main); font-size: 1.9rem; font-weight: 700; font-style: italic; }
         
