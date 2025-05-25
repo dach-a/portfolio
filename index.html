@@ -22,15 +22,22 @@
             position: fixed;
             left: 0;
             right: 0;
-            width: 50px;
+            width: 60px;
             height: 100vh;
             transform: rotate(-90deg) translateX(-100%);
             transform-origin: left top;
             background-color: var(--primary);
-            padding: 1rem;
+            padding: 40px 0;
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
             align-items: center;
+            z-index: 1000;
+        }
+
+        header > * {
+            transform: rotate(90deg);
+            white-space: nowrap;
         }
         
         .name-box, 
@@ -40,6 +47,37 @@
               width: 100vh;
               text-align: center;
         }
+        
+        .name-box {
+            font-size: 1.2rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin: 20px 0;
+        }
+
+        .scroll-box {
+          width: 100vh; /* Full viewport height */
+          text-align: center;
+          overflow: hidden;
+          flex-grow: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .scroll {
+          animation: scroll 45s linear infinite;
+          padding: 0 20px;
+        }
+        
+        .location-icon {
+          display: block;
+          width: 24px;
+          height: 24px;
+          background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5 14.5 7.62 14.5 9 13.38 11.5 12 11.5z"/></svg>');
+          margin: 20px 0;
+        }
+
 
 
         h3 { color: var(--main); font-size: 1.9rem; font-weight: 700; font-style: italic; }
