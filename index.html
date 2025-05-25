@@ -166,6 +166,7 @@
 
     // Quotes retrieved from API and displayed here
     async function fetchQuote(){
+        console.log('fetching new quote...')
         try{
             // API parameter setup here
             const params = new URLSearchParams({
@@ -175,7 +176,7 @@
             });
 
             // API response with quote here
-            const response = await fetch(`https://api.quotable.io/quotes?${params}`);
+            const response = await fetch(`https://api.quotable.io/quotes?${params}&_=${Date.now()}`);
             const data = await response.json();
 
             // Quote extracted from response here
@@ -183,7 +184,7 @@
             const quote = quotes[Math.floor(Math.random() * quotes.length)];
 
             // DOM Element updated to show quote
-            quoteElement.textContent = `"${quote.content}" - ${quote.author}`;
+            quoteElement.textContent = `"${quote.content}" - ${quote.author} (${Date.now()})`;
 
             // Apply scroll animation
             quoteElement.classList.add("scroll-in");
