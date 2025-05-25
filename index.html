@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dach-a</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2C5F2D;
-            --secondary: #004B8D;
-            --light: #F4F4F4;
+            --primary: #323232;
+            --secondary: #295f4e;
+            --main: #eb2632;
+            --light: #F5F5F5;
         }
-        * { box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        * { box-sizing: border-box; font-family: "Space Grotesk", sans-serif; }
         body { margin: 0; line-height: 1.6; }
         
         /* Header */
@@ -21,14 +25,17 @@
             justify-content: space-between;
             align-items: center;
         }
-        
-        nav a { color: white; text-decoration: none; margin-left: 2rem; }
 
-        /* Hero */
+        h3 { color: var(--main); font-size: 1.9rem; font-weight: 700; }
+        
+        nav a { color: var(--light); text-decoration: none; margin-left: 2rem; }
+
+        
 
         /* Connect Links */
         .connect-section {
             max-width: 600px;
+            background: var(--main);
             margin: 2rem auto;
             padding: 2rem;
         }
