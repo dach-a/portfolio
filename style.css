@@ -17,7 +17,7 @@
             background-color: var(--light); 
             color: var(--primary); 
         }
-        .container {
+        .homepage {
             display: flex;
             height: 100vh;
         }
