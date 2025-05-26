@@ -5,7 +5,9 @@
             --main: #eb2632;
             --light: #F5F5F5;
         }
-        * { 
+        *,
+        *::before,
+        *::after { 
             margin: 0;
             padding: 0;
             box-sizing: border-box; 
@@ -17,6 +19,9 @@
             background-color: var(--light); 
             color: var(--primary); 
         }
+        img {
+            max-width: 100%;
+        }    
         .homepage {
             display: flex;
             height: 100vh;
