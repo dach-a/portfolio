@@ -21,7 +21,11 @@
         }
         img {
             max-width: 100%;
-        }    
+        }
+        .container {
+            width: 80%;
+            max-width: 1100px;
+        }
         .homepage {
             display: flex;
             height: 100vh;
