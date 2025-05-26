@@ -1,1 +1,127 @@
 
+        :root {
+            --primary: #323232;
+            --secondary: #295f4e;
+            --main: #eb2632;
+            --light: #F5F5F5;
+        }
+        * { 
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; 
+             
+        }
+        body { 
+            height: 100%;
+            font-family: "Space Grotesk", sans-serif;
+            background-color: var(--light); 
+            color: var(--primary); 
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        
+        .left-panel {
+            position: relative;
+            width: 50%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .scroll-quote {
+            position: absolute;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+            font-size: 1.2rem;
+            color: var(--secondary);
+            left: 0;
+            top: 0;
+            height: 100%;
+            padding: 1rem;
+            background-color: var(--light);
+            font-weight: 500;
+            letter-spacing: 0.1em;
+        }
+
+        .left-panel .name{
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform: rotate(-90deg);
+            transform-origin: top left;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            padding: 1rem;
+            background-color: var(--primary);
+            color: var(--main);
+            font-size: 1.6rem;
+        }
+        
+        .right-panel {
+          width: 50%;
+          background: #fff;
+          padding: 4rem;
+          overflow-y: auto;
+        }
+        
+        nav {
+          display: flex;
+          gap: 2rem;
+          margin-bottom: 2rem;
+          font-size: 1.2rem;
+        }
+
+        nav a {
+          text-decoration: none;
+          color: var(--main);
+          border-bottom: 1px solid var(--light);
+        }
+        .info {
+          margin: 2rem 0;
+          display: flex;
+          gap: 4rem;
+          font-size: 0.85rem;
+        }
+
+        .info div {
+          line-height: 1.4;
+        }
+        
+        .links a {
+          color: var(--main);
+          text-decoration: underline;
+        }
+        
+        .links a:hover {
+          color: var(--primary);
+        }
+
+        .scroll-in {
+          animation: scrollFadeIn 1s ease-in-out;
+        }
+        .scroll-out {
+          opacity: 0;
+          transform: translateY(-20px);
+          transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        @keyframes scrollFadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+
+        /* Mobile Menu */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; }
+            .mobile-menu { display: block; }
+        }
