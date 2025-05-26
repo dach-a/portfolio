@@ -22,9 +22,10 @@
             height: 100vh;
         }
         
-        .left-panel {
+        .left_panel {
             position: relative;
             width: 50%;
+            background-color: var(--primary);
             display: flex;
             align-items: flex-end;
             justify-content: center;
@@ -60,9 +61,8 @@
             font-size: 1.6rem;
         }
         
-        .right-panel {
+        .right_panel {
           width: 50%;
-          background: #fff;
           padding: 4rem;
           overflow-y: auto;
         }
