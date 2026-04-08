@@ -1,19 +1,19 @@
 # 👨‍💻 whois d4ch
 
-**Software Engineer | Full-Stack Developer | MSc. Cybersecurity & Digital Forensics**
+**Software Engineer | Cybersecurity & Digital Forensics**
 
-Software Engineer with 5 years of professional experience focused on designing high-performance service APIs and building scalable web applications. My background in Cybersecurity and Digital Forensics allows me to architect systems with a "security-first" mindset, implementing robust access controls and secure data models.
+Software Engineer focused on designing high-performance service APIs and building scalable web applications. My background in Cybersecurity and Digital Forensics allows me to architect systems with a "security-first" mindset, implementing robust access controls and secure data models.
 
 ---
 
 ### 🔭 Professional Focus
-* **System Architecture:** Maintaining production-ready MERN stack applications and building real-time e-commerce platforms using **Next.js**, **React**, and **Redux**.
+* **System Architecture:** Maintaining production-ready MERN stack web applications and building real-time e-commerce platforms using **Next.js**, **React**, and **Redux**.
 * **API & Backend:** Designing RESTful APIs with **Node.js** and integrating automated financial workflows, including payment processing and inventory management.
-* **Security & Reliability:** Implementing **OWASP** standards, containerizing with **Docker**, and managing deployments on **AWS**.
+* **Security & Reliability:** Implementing **OWASP** standards, containerizing with **Docker**, and managing deployments on **Vercel**.
 * **Advanced R&D:** Developing AI-driven anomaly detection to flag suspicious packages and enforce security protocols.
 
 ### 💬 Let's Connect
-I'm open to collaborating on challenging tech projects, specifically those involving networking, servers, or complex system architecture.
+Open to collaborating on challenging tech projects, specifically those involving networking, servers or complex system architecture.
 
 📫 **Reach me at:**
 [![Email](https://img.shields.io/badge/-Email-D14836?style=flat-square&logo=Gmail&logoColor=white)](mailto:dashkwesi@gmail.com)
@@ -40,7 +40,6 @@ I'm open to collaborating on challenging tech projects, specifically those invol
 
 **DevOps & Infrastructure**
 ![Docker](https://img.shields.io/badge/-Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![AWS](https://img.shields.io/badge/-AWS-232F3E?style=flat-square&logo=amazon-aws&logoColor=white)
 ![Firebase](https://img.shields.io/badge/-Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)
 
 ---
