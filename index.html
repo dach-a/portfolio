@@ -1,329 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>d4ch | Dachel Akyerefi</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d4ch | Software Engineer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="homepage">
+        
+        <div class="left_panel">
+            <div class="brand_bar">
+                <span class="vertical_text title_text">whois d4ch</span>
+                <img src="image/logo.png" alt="Logo" class="logo_icon">
+            </div>
+            
+            <div class="quote_bar">
+                <span class="vertical_text scroll-quote" id="quoteText">Fetching quote...</span>
+            </div>
+            
+            <div class="image_background">
+                </div>
+        </div>
 
-<div class="homepage">
+        <div class="right_panel">
+            <nav>
+                <a href="#" class="active">Home</a>
+                <a href="#">Projects</a>
+                <a href="#">Security</a>
+                <a href="#">About</a>
+            </nav>
 
-  <!-- ── FAR LEFT NAME STRIP (mirrors the "CHRIS SHIFLETT" vertical strip) ── -->
-  <div class="name-strip">
-    <span class="strip-name">DACHEL AKYEREFI</span>
-    <span class="strip-role">SOFTWARE ENGINEER</span>
-  </div>
+            <main>
+                <h1><strong>d4ch</strong> is a Software Engineer focused on designing high-performance service APIs and building scalable web applications.</h1>
 
-  <!-- ── LEFT PANEL (image / particle canvas) ── -->
-  <div class="left_panel">
-    <canvas id="three-canvas"></canvas>
+                <div class="stats_grid">
+                    <div class="stat_col">
+                        <h4>LOCATION</h4>
+                        <p>Ghana</p>
+                        <p>GMT</p>
+                    </div>
+                    <div class="stat_col">
+                        <h4>CORE STACK</h4>
+                        <p>Next.js / React</p>
+                        <p>Node.js</p>
+                        <p>Redux</p>
+                    </div>
+                    <div class="stat_col">
+                        <h4>CONNECT</h4>
+                        <p><a href="https://github.com/dach-a" target="_blank">GitHub</a></p>
+                        <p><a href="#" target="_blank">LinkedIn</a></p>
+                    </div>
+                </div>
 
-    <!-- Duotone overlay tinted with brand red -->
-    <div class="panel-overlay"></div>
-
-    <!-- Scrolling quote at bottom, same as reference -->
-    <div class="scroll-quote-container">
-      <p class="scroll-quote scroll-in">"Fetching inspiration..."</p>
+                <div class="content">
+                    <p>Welcome! Please make yourself at home.</p>
+                    <p>My background in Cybersecurity and Digital Forensics allows me to architect systems with a "security-first" mindset, implementing robust access controls and secure data models.</p>
+                    <p>Right now, I’m busy maintaining production-ready MERN stack web applications and building real-time e-commerce platforms. In addition to system architecture, my focus includes designing RESTful APIs and developing AI-driven anomaly detection to enforce security protocols.</p>
+                </div>
+            </main>
+        </div>
     </div>
 
-    <!-- Location pin at very bottom left, like reference site -->
-    <div class="location-pin">
-      <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-      <span>Accra, GH</span>
-    </div>
-  </div>
-
-  <!-- ── RIGHT PANEL ── -->
-  <div class="right_panel">
-
-    <!-- Top nav (identical position to reference) -->
-    <nav class="top-nav">
-      <a href="#home" class="active">Home</a>
-      <a href="#projects">Projects</a>
-      <a href="#stack">Stack</a>
-      <a href="#about">About</a>
-    </nav>
-
-    <!-- HERO -->
-    <section id="home" class="hero-content">
-      <h1><strong>Dachel Akyerefi</strong> is a software engineer focused on designing high-performance APIs and building scalable web applications.</h1>
-
-      <div class="metadata-grid">
-        <div class="meta-item">
-          <h3>Location</h3>
-          <p>Accra, Ghana</p>
-        </div>
-        <div class="meta-item">
-          <h3>Education</h3>
-          <p>MSc. Cybersecurity</p>
-          <p>BSc. Telecoms</p>
-        </div>
-        <div class="meta-item">
-          <h3>Companies</h3>
-          <a href="#">Nano Link Services</a>
-          <a href="#">Electoral Commission</a>
-          <a href="#">SWAP Telecoms</a>
-        </div>
-      </div>
-
-      <div class="bio-text">
-        <p>Welcome! Please make yourself at home.</p>
-        <p>I have spent the last 5 years building and maintaining production-ready MERN stack applications. Right now, I'm focused on building auto-cooldown AI for data engineering and developing scalable CMS platforms for institutional clients.</p>
-        <p>Feel free to browse <a href="https://github.com/dach-a" target="_blank">my projects</a>, or learn more <a href="#about">about me</a>.</p>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects">
-      <div class="section-label">github projects</div>
-      <div id="projects-loading">Loading repositories…</div>
-      <div class="projects-grid" id="projects-grid" style="display:none"></div>
-    </section>
-
-    <!-- STACK -->
-    <section id="stack">
-      <div class="section-label">languages &amp; tools</div>
-      <div class="skill-group">
-        <div class="skill-group-title">Core Languages</div>
-        <div class="skill-tags">
-          <span class="skill-tag accent">JavaScript</span>
-          <span class="skill-tag accent">TypeScript</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">PHP</span>
-          <span class="skill-tag">C++</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Full-Stack</div>
-        <div class="skill-tags">
-          <span class="skill-tag">React</span>
-          <span class="skill-tag">Next.js</span>
-          <span class="skill-tag">Node.js</span>
-          <span class="skill-tag">MongoDB</span>
-          <span class="skill-tag">Redux</span>
-          <span class="skill-tag">Tailwind CSS</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">DevOps &amp; Infrastructure</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Docker</span>
-          <span class="skill-tag">AWS</span>
-          <span class="skill-tag">Firebase</span>
-          <span class="skill-tag">RESTful APIs</span>
-          <span class="skill-tag">OWASP</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Specialties</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Cybersecurity</span>
-          <span class="skill-tag">Digital Forensics</span>
-          <span class="skill-tag">AI Anomaly Detection</span>
-          <span class="skill-tag">Payment Integration</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="section-label">about</div>
-      <div class="bio-text">
-        <p>Software Engineer with 5 years of professional experience focused on designing high-performance service APIs and building scalable web applications. My background in Cybersecurity and Digital Forensics allows me to architect systems with a "security-first" mindset, implementing robust access controls and secure data models.</p>
-        <p><strong>Professional Focus:</strong> Maintaining production-ready MERN stack applications and building real-time e-commerce platforms. Designing RESTful APIs with Node.js and integrating automated financial workflows including payment processing and inventory management. Implementing OWASP standards and containerising with Docker on AWS. Developing AI-driven anomaly detection to flag suspicious packages and enforce security protocols.</p>
-        <p>Open to collaborating on challenging tech projects — specifically those involving networking, servers, or complex system architecture. <a href="mailto:dashkwesi@gmail.com">Get in touch →</a></p>
-      </div>
-    </section>
-
-    <!-- GITHUB STATS -->
-    <section id="stats">
-      <div class="section-label">activity</div>
-      <div class="stats-grid">
-        <div class="stat-img">
-          <img src="https://github-readme-stats.vercel.app/api?username=dach-a&show_icons=true&theme=radical&hide_border=true" alt="GitHub Stats" loading="lazy" />
-        </div>
-        <div class="stat-img">
-          <img src="https://github-readme-streak-stats.herokuapp.com/?user=dach-a&theme=radical&hide_border=true" alt="Streak Stats" loading="lazy" />
-        </div>
-        <div class="stat-img stat-full">
-          <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=dach-a&layout=compact&theme=radical&hide_border=true" alt="Top Languages" loading="lazy" />
-        </div>
-      </div>
-    </section>
-
-    <footer class="site-footer">
-      <span>d4ch · <a href="mailto:dashkwesi@gmail.com">dashkwesi@gmail.com</a></span>
-      <div class="footer-links">
-        <a href="https://github.com/dach-a" target="_blank">GitHub</a>
-        <a href="https://linkedin.com/in/dachelakyerefi" target="_blank">LinkedIn</a>
-      </div>
-    </footer>
-
-  </div><!-- /right_panel -->
-</div><!-- /homepage -->
-
-<script src="main.js"></script>
-<script>
-/* ═══════════════════════════════════════════════════════════
-   THREE.JS — Floating particle network on left panel
-═══════════════════════════════════════════════════════════ */
-(function initThree() {
-  const canvas = document.getElementById('three-canvas');
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(60, 1, 0.1, 1000);
-  camera.position.z = 80;
-
-  const resize = () => {
-    const w = canvas.parentElement.clientWidth;
-    const h = canvas.parentElement.clientHeight;
-    renderer.setSize(w, h, false);
-    camera.aspect = w / h;
-    camera.updateProjectionMatrix();
-  };
-  resize();
-  window.addEventListener('resize', resize);
-
-  const COUNT = 120;
-  const positions = new Float32Array(COUNT * 3);
-  const vels = [];
-  for (let i = 0; i < COUNT; i++) {
-    positions[i * 3]     = (Math.random() - 0.5) * 120;
-    positions[i * 3 + 1] = (Math.random() - 0.5) * 120;
-    positions[i * 3 + 2] = (Math.random() - 0.5) * 40;
-    vels.push({ x: (Math.random() - 0.5) * 0.06, y: (Math.random() - 0.5) * 0.06 });
-  }
-  const geo = new THREE.BufferGeometry();
-  geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  const mat = new THREE.PointsMaterial({ color: 0xffffff, size: 1.1, transparent: true, opacity: 0.5 });
-  const points = new THREE.Points(geo, mat);
-  scene.add(points);
-
-  const lineMat = new THREE.LineBasicMaterial({ color: 0xeb2632, transparent: true, opacity: 0.15 });
-  const lineGeo = new THREE.BufferGeometry();
-  const linePositions = new Float32Array(COUNT * COUNT * 6);
-  lineGeo.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
-  const lines = new THREE.LineSegments(lineGeo, lineMat);
-  scene.add(lines);
-
-  let mx = 0, my = 0;
-  document.querySelector('.left_panel').addEventListener('mousemove', e => {
-    const r = e.currentTarget.getBoundingClientRect();
-    mx = ((e.clientX - r.left) / r.width  - 0.5) * 2;
-    my = ((e.clientY - r.top)  / r.height - 0.5) * 2;
-  });
-
-  const THRESH = 35;
-  let frame = 0;
-  function animate() {
-    requestAnimationFrame(animate);
-    frame++;
-    const pos = geo.attributes.position.array;
-    for (let i = 0; i < COUNT; i++) {
-      pos[i * 3]     += vels[i].x;
-      pos[i * 3 + 1] += vels[i].y;
-      if (Math.abs(pos[i * 3])     > 60) vels[i].x *= -1;
-      if (Math.abs(pos[i * 3 + 1]) > 60) vels[i].y *= -1;
-    }
-    geo.attributes.position.needsUpdate = true;
-
-    if (frame % 2 === 0) {
-      let lIdx = 0;
-      const lp = lineGeo.attributes.position.array;
-      for (let a = 0; a < COUNT; a++) {
-        for (let b = a + 1; b < COUNT; b++) {
-          const dx = pos[a*3]   - pos[b*3];
-          const dy = pos[a*3+1] - pos[b*3+1];
-          const dz = pos[a*3+2] - pos[b*3+2];
-          if (Math.sqrt(dx*dx+dy*dy+dz*dz) < THRESH) {
-            lp[lIdx++] = pos[a*3]; lp[lIdx++] = pos[a*3+1]; lp[lIdx++] = pos[a*3+2];
-            lp[lIdx++] = pos[b*3]; lp[lIdx++] = pos[b*3+1]; lp[lIdx++] = pos[b*3+2];
-          }
-        }
-      }
-      lineGeo.setDrawRange(0, lIdx / 3);
-      lineGeo.attributes.position.needsUpdate = true;
-    }
-
-    camera.position.x += (mx * 4 - camera.position.x) * 0.04;
-    camera.position.y += (-my * 4 - camera.position.y) * 0.04;
-    camera.lookAt(0, 0, 0);
-    renderer.render(scene, camera);
-  }
-  animate();
-})();
-
-/* ═══════════════════════════════════════════════════════════
-   GITHUB PROJECTS
-═══════════════════════════════════════════════════════════ */
-async function loadProjects() {
-  const grid = document.getElementById('projects-grid');
-  const loading = document.getElementById('projects-loading');
-  const LANG_CLASS = { JavaScript:'js', TypeScript:'ts', Python:'py', PHP:'php', 'C++':'cpp' };
-  const ICONS = { JavaScript:'⚡', TypeScript:'🔷', Python:'🐍', PHP:'🐘', 'C++':'⚙️', HTML:'🌐', CSS:'🎨', Shell:'🖥️', default:'📦' };
-
-  try {
-    const res = await fetch('https://api.github.com/users/dach-a/repos?sort=updated&per_page=12&type=public');
-    if (!res.ok) throw new Error('GitHub API error');
-    const repos = await res.json();
-    if (!repos.length) { loading.textContent = 'No public repositories found.'; return; }
-    loading.style.display = 'none';
-    grid.style.display = 'grid';
-    repos.forEach(repo => {
-      const lang = repo.language || '';
-      const icon = ICONS[lang] || ICONS.default;
-      const langClass = LANG_CLASS[lang] || '';
-      const stars = repo.stargazers_count;
-      const desc = repo.description || 'No description provided.';
-      const card = document.createElement('a');
-      card.href = repo.html_url;
-      card.target = '_blank';
-      card.rel = 'noopener noreferrer';
-      card.className = 'project-card';
-      card.innerHTML = `
-        <div class="project-card-header">
-          <span class="project-icon">${icon}</span>
-          <span class="project-star">⭐ ${stars}</span>
-        </div>
-        <div class="project-name">${repo.name}</div>
-        <div class="project-desc">${desc.length > 90 ? desc.slice(0,90)+'…' : desc}</div>
-        <div class="project-footer">
-          ${lang ? `<span class="project-lang ${langClass}">${lang}</span>` : ''}
-          ${repo.fork ? '<span class="project-lang">fork</span>' : ''}
-        </div>
-      `;
-      grid.appendChild(card);
-    });
-  } catch (err) {
-    loading.textContent = '⚠️ Could not load repositories. ';
-    loading.innerHTML += '<a href="https://github.com/dach-a" target="_blank">View on GitHub →</a>';
-  }
-}
-loadProjects();
-
-/* ═══════════════════════════════════════════════════════════
-   NAV ACTIVE STATE
-═══════════════════════════════════════════════════════════ */
-const navLinks = document.querySelectorAll('.top-nav a');
-const sections = document.querySelectorAll('section[id]');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      navLinks.forEach(l => l.classList.remove('active'));
-      const active = document.querySelector(`.top-nav a[href="#${e.target.id}"]`);
-      if (active) active.classList.add('active');
-    }
-  });
-}, { threshold: 0.4, root: document.querySelector('.right_panel') });
-sections.forEach(s => observer.observe(s));
-</script>
+    <script src="main.js"></script>
 </body>
 </html>
