@@ -1,24 +1,23 @@
-# 👨‍💻 whois d4ch
+# 👨‍💻 whois cyberd4ch
 
-**Software Engineer | Cybersecurity & Digital Forensics**
+**Telecommunications | Networking | Application Security | Mobile Forensics | Memory Forensics**
 
-Software Engineer focused on designing high-performance service APIs and building scalable web applications. My background in Cybersecurity and Digital Forensics allows me to architect systems with a "security-first" mindset, implementing robust access controls and secure data models.
+👋 I'm a Telecommunications Engineering grad with a background that zigzagged through electrical panels, radio frequency and IT before I found my footing in coding. These days I build full-stack projects with the MERN/Next.js/TypeScript stack and deploy them to learn what breaks (and why). Currently pursuing a master's where I'm deep in the weeds of supply chain security, specifically how breaches sneak into the npm ecosystem and spending my spare time researching on forensics, cloud infrastructure and databases. Not a cloud wizard yet, but I'm actively chasing knowledge in virtualization, Docker/containers and Kubernetes to close that gap. I'm here to turn curious tinkering into solid secure systems (fingers crossed). 🛠️🔬
 
 ---
 
-### 🔭 Professional Focus
-* **System Architecture:** Maintaining production-ready MERN stack web applications and building real-time e-commerce platforms using **Next.js**, **React**, and **Redux**.
-* **API & Backend:** Designing RESTful APIs with **Node.js** and integrating automated financial workflows, including payment processing and inventory management.
-* **Security & Reliability:** Implementing **OWASP** standards, containerizing with **Docker**, and managing deployments on **Vercel**.
-* **Advanced R&D:** Developing AI-driven anomaly detection to flag suspicious packages and enforce security protocols.
+### 🔭 Current Obsessions 
+* **Full-Stack Foundations:** Building interactive web apps with the **Next.js/TypeScript**. I ship code and then figure out what needs to be more secure or what needs scaling.
+* **The Security-First Pivot:** Leveraging a background in **configuring networks** (RF, microwave and LAN/WAN) to understand the stack from the physical layer up to the cloud. Currently research focus is **npm supply chain breaches** for my master's thesis to find out *why* and *how* dependency trees become liabilities.
+* **Infrastructure Curiosity:** Actively learning the tools that keep the internet running. I'm diving deep into **virtualization**, **Docker** and **Kubernetes** to bridge the gap between writing code and managing the machines it lives on.
+* **Forensic Mindset:** Applying forensics to real-world code—looking for anomalies in data flow and access controls rather than just building features that work.
 
 ### 💬 Let's Connect
-Open to collaborating on challenging tech projects, specifically those involving networking, servers or complex system architecture.
+Open to collaborating on projects that sit at the intersection of security research, cloud infrastructure and full-stack development—especially if it involves breaking (and fixing) stuff.
 
 📫 **Reach me at:**
-[![Email](https://img.shields.io/badge/-Email-D14836?style=flat-square&logo=Gmail&logoColor=white)](mailto:dashkwesi@gmail.com)
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=flat-square&logo=Linkedin&logoColor=white)](https://linkedin.com/in/dachelakyerefi)
-[![Portfolio](https://img.shields.io/badge/-Portfolio-333333?style=flat-square&logo=Vercel&logoColor=white)](https://github.com/dach-a/portfolio)
+[![Email](https://img.shields.io/badge/-Email-D14836?style=flat-square&logo=Gmail&logoColor=white)](mailto:cyberdachh@proton.me)
+[![Portfolio](https://img.shields.io/badge/-Portfolio-333333?style=flat-square&logo=Vercel&logoColor=white)](https://github.com/cyberdach)
 
 ---
 
@@ -27,9 +26,6 @@ Open to collaborating on challenging tech projects, specifically those involving
 **Core Languages**
 ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![PHP](https://img.shields.io/badge/-PHP-777BB4?style=flat-square&logo=php&logoColor=white)
-![C++](https://img.shields.io/badge/-C++-00599C?style=flat-square&logo=c%2B%2B&logoColor=white)
 
 **Full-Stack Stack**
 ![React](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react&logoColor=black)
