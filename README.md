@@ -2,7 +2,7 @@
 
 **Telecommunications | Networking | Application Security | Mobile Forensics | Memory Forensics**
 
-👋 I'm a Telecommunications Engineering grad with a background that zigzagged through electrical panels, radio frequency and IT before I found my footing in coding. These days I build full-stack projects with the MERN/Next.js/TypeScript stack and deploy them to learn what breaks (and why). Currently pursuing a master's where I'm deep in the weeds of supply chain security, specifically how breaches sneak into the npm ecosystem and spending my spare time researching on forensics, cloud infrastructure and databases. Not a cloud wizard yet, but I'm actively chasing knowledge in virtualization, Docker/containers and Kubernetes to close that gap. I'm here to turn curious tinkering into solid secure systems (fingers crossed). 🛠️🔬
+👋 Telecommunications Engineering grad with a background that zigzagged through electrical panels, radio frequency and IT before I found my footing in coding. These days I build full-stack projects with the MERN/Next.js/TypeScript stack and deploy them to learn what breaks (and why). Currently pursuing a master's where I'm deep in the weeds of supply chain security, specifically how breaches sneak into the npm ecosystem and spending my spare time researching on forensics, cloud infrastructure and databases. Not a cloud wizard yet, but I'm actively chasing knowledge in virtualization, Docker/containers and Kubernetes to close that gap. I'm here to turn curious tinkering into solid secure systems (fingers crossed). 🛠️🔬
 
 ---
 
