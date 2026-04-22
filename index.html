@@ -3,27 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>d4ch | Portfolio</title>
+  <title>cyberdach | ~/$</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <style>
-    /* ─── TOKENS ─────────────────────────────────────────────────────────── */
+    /* ===== DESIGN TOKENS ===== */
     :root {
-      --primary:   #323232;
+      --primary:   #1e1e1e;
       --secondary: #295f4e;
-      --main:      #eb2632;
-      --light:     #F5F5F5;
       --accent:    #eb2632;
+      --light:     #F5F5F5;
       --muted:     #888;
       --border:    rgba(255,255,255,0.08);
       --mono:      "JetBrains Mono", monospace;
       --sans:      "Space Grotesk", sans-serif;
+      --glow:      0 0 12px rgba(235,38,50,0.4);
     }
 
-    /* ─── RESET ──────────────────────────────────────────────────────────── */
-    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    * { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior: smooth; }
     body {
       font-family: var(--sans);
@@ -32,17 +31,16 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-    a { color: var(--secondary); text-decoration: none; }
-    a:hover { color: var(--main); }
-    img { max-width: 100%; display: block; }
+    a { color: var(--secondary); text-decoration: none; transition: 0.2s; }
+    a:hover { color: var(--accent); }
 
-    /* ─── LAYOUT ─────────────────────────────────────────────────────────── */
+    /* ===== SPA LAYOUT ===== */
     .homepage {
       display: flex;
       min-height: 100vh;
     }
 
-    /* ─── LEFT PANEL ─────────────────────────────────────────────────────── */
+    /* ----- LEFT PANEL (static) ----- */
     .left_panel {
       position: fixed;
       top: 0; left: 0;
@@ -75,58 +73,63 @@
       font-family: var(--mono);
       font-size: 0.65rem;
       letter-spacing: 0.35em;
-      color: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.3);
       text-transform: uppercase;
-      writing-mode: horizontal-tb;
     }
-    .avatar-ring {
-      width: 90px; height: 90px;
-      border-radius: 50%;
-      border: 2px solid var(--main);
-      display: flex; align-items: center; justify-content: center;
-      background: rgba(50,50,50,0.6);
-      backdrop-filter: blur(4px);
-      box-shadow: 0 0 30px rgba(235,38,50,0.3);
-    }
-    .avatar-ring span {
-      font-size: 2.2rem;
-    }
-    .left-title {
-      text-align: center;
-    }
-    .left-title h2 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: -0.02em;
-    }
-    .left-title p {
-      font-size: 0.7rem;
+
+    /* ----- TERMINAL PROMPT LOGO ----- */
+    .terminal-logo {
       font-family: var(--mono);
-      color: var(--main);
-      letter-spacing: 0.1em;
-      margin-top: 0.3rem;
+      font-size: 1.3rem;
+      line-height: 1.4;
+      text-align: left;
+      background: rgba(20,20,20,0.7);
+      backdrop-filter: blur(8px);
+      padding: 1.2rem 1.8rem;
+      border-radius: 12px;
+      border: 1px solid rgba(235,38,50,0.3);
+      box-shadow: var(--glow);
+      pointer-events: none;
     }
+    .prompt-line {
+      color: #00ff9d;
+      opacity: 0.85;
+    }
+    .user { color: #ff5555; font-weight: bold; }
+    .host { color: #f1fa8c; }
+    .path { color: #8be9fd; }
+    .cursor-block {
+      display: inline-block;
+      background: var(--accent);
+      color: #0a0a0a;
+      font-weight: bold;
+      padding: 0 2px;
+      margin-left: 4px;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
     .left-links {
       display: flex;
       gap: 1rem;
       pointer-events: all;
     }
     .left-links a {
-      width: 36px; height: 36px;
+      width: 38px; height: 38px;
       border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 8px;
+      border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
       color: rgba(255,255,255,0.6);
-      font-size: 0.85rem;
-      transition: all 0.2s;
       background: rgba(255,255,255,0.04);
+      transition: all 0.2s;
     }
     .left-links a:hover {
-      border-color: var(--main);
-      color: var(--main);
-      background: rgba(235,38,50,0.1);
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(235,38,50,0.15);
+      box-shadow: var(--glow);
     }
+
     .scroll-quote-container {
       position: absolute;
       bottom: 2rem;
@@ -138,53 +141,51 @@
     .scroll-quote {
       font-family: var(--mono);
       font-size: 0.62rem;
-      color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.25);
       line-height: 1.6;
       transition: opacity 0.5s, transform 0.5s;
     }
-    .scroll-quote.scroll-out { opacity: 0; transform: translateY(6px); }
-    .scroll-quote.scroll-in  { opacity: 1; transform: translateY(0); }
-    .nav_toggle {
-      display: none;
-    }
+    .scroll-out { opacity: 0; transform: translateY(6px); }
+    .scroll-in  { opacity: 1; transform: translateY(0); }
 
-    /* ─── RIGHT PANEL ────────────────────────────────────────────────────── */
+    /* ----- RIGHT PANEL (dynamic) ----- */
     .right_panel {
       margin-left: 50%;
       width: 50%;
       min-height: 100vh;
-      padding: 4rem 3.5rem;
+      padding: 3rem 3.5rem;
       overflow-y: auto;
+      background: var(--light);
     }
 
-    /* ─── TOP NAV ────────────────────────────────────────────────────────── */
+    /* Navigation */
     .top-nav {
       display: flex;
       gap: 2rem;
-      margin-bottom: 3.5rem;
+      margin-bottom: 3rem;
       padding-bottom: 1rem;
-      border-bottom: 1px solid rgba(50,50,50,0.1);
+      border-bottom: 1px solid rgba(30,30,30,0.12);
     }
-    .top-nav a {
+    .nav-link {
       font-family: var(--mono);
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--muted);
-      font-weight: 400;
-      transition: color 0.2s;
+      cursor: pointer;
+      transition: 0.2s;
     }
-    .top-nav a:hover, .top-nav a.active { color: var(--primary); }
+    .nav-link:hover,
+    .nav-link.active { color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 3px; }
 
-    /* ─── SECTIONS ───────────────────────────────────────────────────────── */
-    section { margin-bottom: 4rem; }
+    /* Sections */
     .section-label {
       font-family: var(--mono);
       font-size: 0.62rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: var(--main);
-      margin-bottom: 1.2rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
       display: flex;
       align-items: center;
       gap: 0.6rem;
@@ -193,246 +194,112 @@
       content: "";
       flex: 1;
       height: 1px;
-      background: rgba(50,50,50,0.12);
+      background: rgba(30,30,30,0.12);
     }
 
-    /* ─── HERO ───────────────────────────────────────────────────────────── */
+    /* Cards, tags, etc. (keep existing styles) */
     .hero-content h1 {
-      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
       font-weight: 400;
       line-height: 1.45;
-      letter-spacing: -0.02em;
       margin-bottom: 2rem;
     }
-    .hero-content h1 strong {
-      font-weight: 700;
-      color: var(--primary);
-    }
+    .hero-content h1 strong { font-weight: 700; }
     .metadata-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3,1fr);
       gap: 1.5rem;
-      margin-bottom: 2rem;
+      margin: 2rem 0;
       padding: 1.5rem;
-      background: rgba(50,50,50,0.04);
+      background: rgba(30,30,30,0.04);
       border-radius: 10px;
-      border: 1px solid rgba(50,50,50,0.08);
     }
     .meta-item h3 {
       font-family: var(--mono);
-      font-size: 0.58rem;
+      font-size: 0.6rem;
       letter-spacing: 0.2em;
-      text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 0.5rem;
     }
-    .meta-item p, .meta-item a {
-      font-size: 0.82rem;
-      color: var(--primary);
-      line-height: 1.7;
-      display: block;
-    }
-    .meta-item a:hover { color: var(--main); }
     .bio-text p {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       line-height: 1.8;
-      color: #555;
-      margin-bottom: 0.9rem;
+      color: #444;
+      margin-bottom: 1rem;
     }
-    .bio-text a {
-      color: var(--secondary);
-      border-bottom: 1px solid rgba(41,95,78,0.3);
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .bio-text a:hover { color: var(--main); border-color: var(--main); }
 
-    /* ─── SKILLS ─────────────────────────────────────────────────────────── */
-    .skill-group { margin-bottom: 1.5rem; }
-    .skill-group-title {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.7rem;
-    }
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 2rem; }
     .skill-tag {
       font-family: var(--mono);
       font-size: 0.7rem;
-      padding: 0.3rem 0.75rem;
+      padding: 0.3rem 0.9rem;
       border-radius: 4px;
-      border: 1px solid rgba(50,50,50,0.14);
-      color: var(--primary);
+      border: 1px solid rgba(30,30,30,0.15);
       background: #fff;
-      transition: all 0.2s;
-      cursor: default;
     }
-    .skill-tag:hover {
-      border-color: var(--secondary);
-      color: var(--secondary);
-      background: rgba(41,95,78,0.05);
-    }
-    .skill-tag.accent { border-color: var(--main); color: var(--main); background: rgba(235,38,50,0.04); }
 
-    /* ─── PROJECTS ───────────────────────────────────────────────────────── */
     .projects-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
     }
     .project-card {
-      border: 1px solid rgba(50,50,50,0.1);
+      border: 1px solid rgba(30,30,30,0.1);
       border-radius: 10px;
       padding: 1.2rem;
       background: #fff;
-      transition: all 0.25s;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
+      transition: 0.2s;
       cursor: pointer;
       text-decoration: none;
       color: inherit;
     }
     .project-card:hover {
       border-color: var(--secondary);
-      box-shadow: 0 4px 20px rgba(41,95,78,0.1);
-      transform: translateY(-2px);
-      color: inherit;
-    }
-    .project-card-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 0.5rem;
-    }
-    .project-icon { font-size: 1.1rem; }
-    .project-star {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-    .project-name {
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      color: var(--primary);
-    }
-    .project-desc {
-      font-size: 0.75rem;
-      color: #777;
-      line-height: 1.5;
-      flex: 1;
-    }
-    .project-footer {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-    .project-lang {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      padding: 0.15rem 0.5rem;
-      border-radius: 3px;
-      background: rgba(41,95,78,0.1);
-      color: var(--secondary);
-    }
-    .project-lang.js  { background: rgba(247,223,30,0.12); color: #8a7800; }
-    .project-lang.ts  { background: rgba(49,120,198,0.1);  color: #1d5fa8; }
-    .project-lang.py  { background: rgba(55,118,171,0.1);  color: #2a6fa8; }
-    .project-lang.php { background: rgba(119,107,180,0.1); color: #5a4fa8; }
-    .project-lang.cpp { background: rgba(0,89,156,0.1);    color: #005fa8; }
-    #projects-loading {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--muted);
-      padding: 1.5rem 0;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(41,95,78,0.1);
     }
 
-    /* ─── STATS ──────────────────────────────────────────────────────────── */
     .stats-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
     }
-    .stat-img {
-      border-radius: 8px;
-      overflow: hidden;
-      background: #1a1a2e;
-    }
-    .stat-img img { width: 100%; }
+    .stat-img { border-radius: 8px; overflow: hidden; background: #1a1a2e; }
+    .stat-img img { width:100%; display:block; }
 
-    /* ─── MOBILE ─────────────────────────────────────────────────────────── */
+    /* Mobile */
     @media (max-width: 768px) {
       .homepage { flex-direction: column; }
-      .left_panel {
-        position: relative;
-        width: 100%;
-        height: 55vw;
-        min-height: 260px;
-      }
-      .right_panel {
-        margin-left: 0;
-        width: 100%;
-        padding: 2rem 1.5rem;
-      }
-      .projects-grid { grid-template-columns: 1fr; }
-      .stats-grid { grid-template-columns: 1fr; }
-      .metadata-grid { grid-template-columns: 1fr; gap: 1rem; }
-      .top-nav { gap: 1.2rem; flex-wrap: wrap; }
+      .left_panel { position: relative; width:100%; height:50vh; min-height:300px; }
+      .right_panel { margin-left:0; width:100%; padding:2rem 1.5rem; }
+      .projects-grid { grid-template-columns:1fr; }
+      .metadata-grid { grid-template-columns:1fr; }
     }
 
-    /* ─── FADE IN ────────────────────────────────────────────────────────── */
-    @keyframes fadeUp {
-      from { opacity:0; transform:translateY(18px); }
-      to   { opacity:1; transform:translateY(0); }
-    }
-    .right_panel > * {
-      animation: fadeUp 0.5s ease both;
-    }
-    .right_panel > *:nth-child(1) { animation-delay: 0.05s; }
-    .right_panel > *:nth-child(2) { animation-delay: 0.15s; }
-    .right_panel > *:nth-child(3) { animation-delay: 0.25s; }
-    .right_panel > *:nth-child(4) { animation-delay: 0.35s; }
-    .right_panel > *:nth-child(5) { animation-delay: 0.45s; }
-    .right_panel > *:nth-child(6) { animation-delay: 0.55s; }
+    /* Fade animation for view changes */
+    .fade-transition { animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity:0.5; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
   </style>
 </head>
 <body>
-
 <div class="homepage">
 
-  <!-- ── LEFT PANEL ── -->
+  <!-- ========== LEFT PANEL (STATIC) ========== -->
   <div class="left_panel">
     <canvas id="three-canvas"></canvas>
     <div class="left_overlay">
-      <div class="sidebar-name">DACHEL AKYEREFI</div>
-      <div class="avatar-ring"><span>👨‍💻</span></div>
-      <div class="left-title">
-        <h2>d4ch</h2>
-        <p>Software Engineer · Security</p>
+      <div class="sidebar-name">~/$ CYBERDACH</div>
+
+      <!-- 🖥️ TERMINAL LOGO (NEW) -->
+      <div class="terminal-logo">
+        <div class="prompt-line">┌─[<span class="user">cyberdach</span><span class="prompt-line">@</span><span class="host">web</span>]──[<span class="path">~</span>]</div>
+        <div class="prompt-line" style="margin-top:5px;">└──╼ $ <span class="cursor-block">█</span></div>
       </div>
+
       <div class="left-links">
-        <a href="mailto:dashkwesi@gmail.com" title="Email">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        </a>
-        <a href="https://linkedin.com/in/dachelakyerefi" target="_blank" title="LinkedIn">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.43v6.31zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-        </a>
-        <a href="https://github.com/dach-a" target="_blank" title="GitHub">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.4-.5-1.5.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3"/></svg>
-        </a>
-        <a href="https://github.com/dach-a/portfolio" target="_blank" title="Portfolio">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-8v4h4l-5 8z"/></svg>
-        </a>
+        <a href="mailto:cyberdachh@proton.me" title="Email">📧</a>
+        <a href="https://linkedin.com/in/dachelakyerefi" target="_blank" title="LinkedIn">in</a>
+        <a href="https://github.com/dach-a" target="_blank" title="GitHub">⎔</a>
       </div>
     </div>
     <div class="scroll-quote-container">
@@ -440,342 +307,281 @@
     </div>
   </div>
 
-  <!-- ── RIGHT PANEL ── -->
+  <!-- ========== RIGHT PANEL (DYNAMIC SPA) ========== -->
   <div class="right_panel">
-
     <nav class="top-nav">
-      <a href="#home"       class="active">Home</a>
-      <a href="#projects">Projects</a>
-      <a href="#stack">Stack</a>
-      <a href="#about">About</a>
+      <span class="nav-link" data-route="home">Home</span>
+      <span class="nav-link" data-route="projects">Projects</span>
+      <span class="nav-link" data-route="stack">Stack</span>
+      <span class="nav-link" data-route="about">About</span>
     </nav>
 
-    <!-- HERO -->
-    <section id="home" class="hero-content">
-      <div class="section-label">intro</div>
-      <h1><strong>Dachel Akyerefi</strong> is a software engineer focused on designing high-performance APIs and building scalable web applications.</h1>
-      <div class="metadata-grid">
-        <div class="meta-item">
-          <h3>Location</h3>
-          <p>Accra, Ghana</p>
-        </div>
-      </div>
-      <div class="bio-text">
-        <p>Welcome! Please make yourself at home.</p>
-        <p>I have spent the last 5 years building and maintaining production-ready MERN stack applications. Right now, I'm focused on building auto-cooldown AI for data engineering and developing scalable CMS platforms for institutional clients.</p>
-        <p>Feel free to browse <a href="https://github.com/dach-a" target="_blank">my projects</a>, or learn more <a href="#about">about me</a>.</p>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects">
-      <div class="section-label">github projects</div>
-      <div id="projects-loading">⏳ Loading repositories...</div>
-      <div class="projects-grid" id="projects-grid" style="display:none"></div>
-    </section>
-
-    <!-- STACK -->
-    <section id="stack">
-      <div class="section-label">languages &amp; tools</div>
-      <div class="skill-group">
-        <div class="skill-group-title">Core Languages</div>
-        <div class="skill-tags">
-          <span class="skill-tag accent">JavaScript</span>
-          <span class="skill-tag accent">TypeScript</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">PHP</span>
-          <span class="skill-tag">C++</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Full-Stack</div>
-        <div class="skill-tags">
-          <span class="skill-tag">React</span>
-          <span class="skill-tag">Next.js</span>
-          <span class="skill-tag">Node.js</span>
-          <span class="skill-tag">MongoDB</span>
-          <span class="skill-tag">Redux</span>
-          <span class="skill-tag">Tailwind CSS</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">DevOps &amp; Infrastructure</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Docker</span>
-          <span class="skill-tag">AWS</span>
-          <span class="skill-tag">Firebase</span>
-          <span class="skill-tag">RESTful APIs</span>
-          <span class="skill-tag">OWASP</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Specialties</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Cybersecurity</span>
-          <span class="skill-tag">Digital Forensics</span>
-          <span class="skill-tag">AI Anomaly Detection</span>
-          <span class="skill-tag">Payment Integration</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="section-label">about</div>
-      <div class="bio-text">
-        <p>Software Engineer with 5 years of professional experience focused on designing high-performance service APIs and building scalable web applications. My background in Cybersecurity and Digital Forensics allows me to architect systems with a "security-first" mindset, implementing robust access controls and secure data models.</p>
-        <p><strong>Professional Focus:</strong> Maintaining production-ready MERN stack applications and building real-time e-commerce platforms. Designing RESTful APIs with Node.js and integrating automated financial workflows including payment processing and inventory management. Implementing OWASP standards and containerising with Docker on AWS. Developing AI-driven anomaly detection to flag suspicious packages and enforce security protocols.</p>
-        <p>Open to collaborating on challenging tech projects — specifically those involving networking, servers, or complex system architecture. <a href="mailto:dashkwesi@gmail.com">Get in touch →</a></p>
-      </div>
-    </section>
-
-    <!-- GITHUB STATS -->
-    <section id="stats">
-      <div class="section-label">activity</div>
-      <div class="stats-grid">
-        <div class="stat-img">
-          <img src="https://github-readme-stats.vercel.app/api?username=dach-a&show_icons=true&theme=radical&hide_border=true" alt="GitHub Stats" loading="lazy" />
-        </div>
-        <div class="stat-img">
-          <img src="https://github-readme-streak-stats.herokuapp.com/?user=dach-a&theme=radical&hide_border=true" alt="Streak Stats" loading="lazy" />
-        </div>
-        <div class="stat-img" style="grid-column:1/-1">
-          <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=dach-a&layout=compact&theme=radical&hide_border=true" alt="Top Languages" loading="lazy" />
-        </div>
-      </div>
-    </section>
-
-  </div><!-- /right_panel -->
-</div><!-- /homepage -->
+    <!-- View container -->
+    <div id="view-container" class="fade-transition">
+      <!-- Content will be injected here by router -->
+    </div>
+  </div>
+</div>
 
 <script>
-/* ═══════════════════════════════════════════════════════════════
-   THREE.JS — Floating particle network on the left panel
-═══════════════════════════════════════════════════════════════ */
-(function initThree() {
-  const canvas = document.getElementById('three-canvas');
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  (function(){
+    "use strict";
 
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(60, 1, 0.1, 1000);
-  camera.position.z = 80;
-
-  const resize = () => {
-    const w = canvas.parentElement.clientWidth;
-    const h = canvas.parentElement.clientHeight;
-    renderer.setSize(w, h, false);
-    camera.aspect = w / h;
-    camera.updateProjectionMatrix();
-  };
-  resize();
-  window.addEventListener('resize', resize);
-
-  /* ── Particles ── */
-  const COUNT = 120;
-  const positions = new Float32Array(COUNT * 3);
-  const vels = [];
-  for (let i = 0; i < COUNT; i++) {
-    positions[i * 3]     = (Math.random() - 0.5) * 120;
-    positions[i * 3 + 1] = (Math.random() - 0.5) * 120;
-    positions[i * 3 + 2] = (Math.random() - 0.5) * 40;
-    vels.push({
-      x: (Math.random() - 0.5) * 0.06,
-      y: (Math.random() - 0.5) * 0.06
-    });
-  }
-  const geo = new THREE.BufferGeometry();
-  geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  const mat = new THREE.PointsMaterial({ color: 0xffffff, size: 1.1, transparent: true, opacity: 0.55 });
-  const points = new THREE.Points(geo, mat);
-  scene.add(points);
-
-  /* ── Connection lines ── */
-  const lineMat = new THREE.LineBasicMaterial({ color: 0xeb2632, transparent: true, opacity: 0.12 });
-  const lineGeo = new THREE.BufferGeometry();
-  const linePositions = new Float32Array(COUNT * COUNT * 6);
-  lineGeo.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
-  const lines = new THREE.LineSegments(lineGeo, lineMat);
-  scene.add(lines);
-
-  /* ── Mouse parallax ── */
-  let mx = 0, my = 0;
-  document.querySelector('.left_panel').addEventListener('mousemove', e => {
-    const r = e.currentTarget.getBoundingClientRect();
-    mx = ((e.clientX - r.left) / r.width  - 0.5) * 2;
-    my = ((e.clientY - r.top)  / r.height - 0.5) * 2;
-  });
-
-  /* ── Animate ── */
-  const THRESH = 35;
-  let frame = 0;
-  function animate() {
-    requestAnimationFrame(animate);
-    frame++;
-
-    const pos = geo.attributes.position.array;
-    for (let i = 0; i < COUNT; i++) {
-      pos[i * 3]     += vels[i].x;
-      pos[i * 3 + 1] += vels[i].y;
-      if (Math.abs(pos[i * 3])     > 60) vels[i].x *= -1;
-      if (Math.abs(pos[i * 3 + 1]) > 60) vels[i].y *= -1;
-    }
-    geo.attributes.position.needsUpdate = true;
-
-    // Update lines every 2 frames for perf
-    if (frame % 2 === 0) {
-      let lIdx = 0;
-      const lp = lineGeo.attributes.position.array;
-      for (let a = 0; a < COUNT; a++) {
-        for (let b = a + 1; b < COUNT; b++) {
-          const dx = pos[a*3]   - pos[b*3];
-          const dy = pos[a*3+1] - pos[b*3+1];
-          const dz = pos[a*3+2] - pos[b*3+2];
-          if (Math.sqrt(dx*dx+dy*dy+dz*dz) < THRESH) {
-            lp[lIdx++] = pos[a*3]; lp[lIdx++] = pos[a*3+1]; lp[lIdx++] = pos[a*3+2];
-            lp[lIdx++] = pos[b*3]; lp[lIdx++] = pos[b*3+1]; lp[lIdx++] = pos[b*3+2];
+    /* ---------- THREE.JS PARTICLES (unchanged) ---------- */
+    (function initThree() {
+      const canvas = document.getElementById('three-canvas');
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(60, 1, 0.1, 1000);
+      camera.position.z = 80;
+      const resize = () => {
+        const w = canvas.parentElement.clientWidth;
+        const h = canvas.parentElement.clientHeight;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+      };
+      resize();
+      window.addEventListener('resize', resize);
+      const COUNT = 120;
+      const positions = new Float32Array(COUNT * 3);
+      const vels = [];
+      for (let i=0; i<COUNT; i++) {
+        positions[i*3]   = (Math.random()-0.5)*120;
+        positions[i*3+1] = (Math.random()-0.5)*120;
+        positions[i*3+2] = (Math.random()-0.5)*40;
+        vels.push({ x:(Math.random()-0.5)*0.06, y:(Math.random()-0.5)*0.06 });
+      }
+      const geo = new THREE.BufferGeometry();
+      geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      const mat = new THREE.PointsMaterial({ color: 0xffffff, size: 1.1, transparent: true, opacity: 0.55 });
+      const points = new THREE.Points(geo, mat);
+      scene.add(points);
+      const lineMat = new THREE.LineBasicMaterial({ color: 0xeb2632, transparent: true, opacity: 0.12 });
+      const lineGeo = new THREE.BufferGeometry();
+      const linePositions = new Float32Array(COUNT * COUNT * 6);
+      lineGeo.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
+      const lines = new THREE.LineSegments(lineGeo, lineMat);
+      scene.add(lines);
+      let mx=0, my=0;
+      document.querySelector('.left_panel').addEventListener('mousemove', e => {
+        const r = e.currentTarget.getBoundingClientRect();
+        mx = ((e.clientX - r.left) / r.width  - 0.5)*2;
+        my = ((e.clientY - r.top)  / r.height - 0.5)*2;
+      });
+      const THRESH = 35;
+      let frame = 0;
+      function animate() {
+        requestAnimationFrame(animate);
+        frame++;
+        const pos = geo.attributes.position.array;
+        for (let i=0; i<COUNT; i++) {
+          pos[i*3]   += vels[i].x;
+          pos[i*3+1] += vels[i].y;
+          if (Math.abs(pos[i*3])>60) vels[i].x*=-1;
+          if (Math.abs(pos[i*3+1])>60) vels[i].y*=-1;
+        }
+        geo.attributes.position.needsUpdate = true;
+        if (frame%2===0) {
+          let lIdx=0;
+          const lp = lineGeo.attributes.position.array;
+          for (let a=0; a<COUNT; a++) {
+            for (let b=a+1; b<COUNT; b++) {
+              const dx = pos[a*3]-pos[b*3];
+              const dy = pos[a*3+1]-pos[b*3+1];
+              const dz = pos[a*3+2]-pos[b*3+2];
+              if (Math.sqrt(dx*dx+dy*dy+dz*dz) < THRESH) {
+                lp[lIdx++] = pos[a*3]; lp[lIdx++] = pos[a*3+1]; lp[lIdx++] = pos[a*3+2];
+                lp[lIdx++] = pos[b*3]; lp[lIdx++] = pos[b*3+1]; lp[lIdx++] = pos[b*3+2];
+              }
+            }
           }
+          lineGeo.setDrawRange(0, lIdx/3);
+          lineGeo.attributes.position.needsUpdate = true;
+        }
+        camera.position.x += (mx*4 - camera.position.x)*0.04;
+        camera.position.y += (-my*4 - camera.position.y)*0.04;
+        camera.lookAt(0,0,0);
+        renderer.render(scene, camera);
+      }
+      animate();
+    })();
+
+    /* ---------- ROTATING QUOTE (unchanged) ---------- */
+    const quoteEl = document.querySelector('.scroll-quote');
+    async function fetchQuote() {
+      try {
+        const res = await fetch(`https://api.quotable.io/random?tags=technology,famous-quotes&maxLength=120&_=${Date.now()}`);
+        const data = await res.json();
+        if (!data || !data.content) throw new Error();
+        quoteEl.classList.add('scroll-out');
+        setTimeout(() => {
+          quoteEl.classList.remove('scroll-out');
+          quoteEl.textContent = `"${data.content}" — ${data.author}`;
+          quoteEl.classList.add('scroll-in');
+        }, 500);
+      } catch {
+        quoteEl.textContent = '"Great minds discuss ideas." — Eleanor Roosevelt';
+      }
+    }
+    fetchQuote();
+    setInterval(fetchQuote, 45000);
+
+    /* ---------- SPA ROUTER & VIEWS ---------- */
+    const container = document.getElementById('view-container');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Simple state
+    let currentRoute = 'home';
+    let projectsCache = null;
+
+    // Helper to render view and update active link
+    function navigate(route) {
+      currentRoute = route;
+      window.location.hash = route;
+      renderView(route);
+      updateActiveLink(route);
+    }
+
+    function updateActiveLink(route) {
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.dataset.route === route);
+      });
+    }
+
+    // ----- VIEW TEMPLATES -----
+    function renderHome() {
+      return `
+        <section class="hero-content">
+          <div class="section-label">~/$ whoami</div>
+          <h1><strong>Dachel Akyerefi</strong> is a software engineer focused on designing high‑performance APIs and building scalable web applications.</h1>
+          <div class="metadata-grid">
+            <div class="meta-item"><h3>Location</h3><p>Accra, Ghana</p></div>
+            <div class="meta-item"><h3>Education</h3><p>MSc. Cybersecurity<br>BSc. Telecoms</p></div>
+            <div class="meta-item"><h3>Focus</h3><p>Full‑Stack · Security · Cloud</p></div>
+          </div>
+          <div class="bio-text">
+            <p>Welcome! Please make yourself at home.</p>
+            <p>I have spent the last 5 years building and maintaining production‑ready MERN stack applications. Right now, I'm focused on building auto‑cooldown AI for data engineering and developing scalable CMS platforms for institutional clients.</p>
+            <p>Feel free to browse <a href="https://github.com/dach-a" target="_blank">my projects</a>, or learn more <a href="#about">about me</a>.</p>
+          </div>
+        </section>
+      `;
+    }
+
+    async function renderProjects() {
+      if (!projectsCache) {
+        try {
+          const res = await fetch('https://api.github.com/users/dach-a/repos?sort=updated&per_page=12');
+          projectsCache = await res.json();
+        } catch {
+          projectsCache = [];
         }
       }
-      lineGeo.setDrawRange(0, lIdx / 3);
-      lineGeo.attributes.position.needsUpdate = true;
-    }
-
-    // Subtle camera parallax
-    camera.position.x += (mx * 4 - camera.position.x) * 0.04;
-    camera.position.y += (-my * 4 - camera.position.y) * 0.04;
-    camera.lookAt(0, 0, 0);
-
-    renderer.render(scene, camera);
-  }
-  animate();
-})();
-
-/* ═══════════════════════════════════════════════════════════════
-   GITHUB PROJECTS
-═══════════════════════════════════════════════════════════════ */
-async function loadProjects() {
-  const grid = document.getElementById('projects-grid');
-  const loading = document.getElementById('projects-loading');
-  const LANG_CLASS = { JavaScript:'js', TypeScript:'ts', Python:'py', PHP:'php', 'C++':'cpp' };
-  const ICONS = { JavaScript:'⚡', TypeScript:'🔷', Python:'🐍', PHP:'🐘', 'C++':'⚙️', HTML:'🌐', CSS:'🎨', Shell:'🖥️', default:'📦' };
-
-  try {
-    const res = await fetch('https://api.github.com/users/dach-a/repos?sort=updated&per_page=12&type=public');
-    if (!res.ok) throw new Error('GitHub API error');
-    const repos = await res.json();
-
-    if (!repos.length) { loading.textContent = 'No public repositories found.'; return; }
-
-    loading.style.display = 'none';
-    grid.style.display = 'grid';
-
-    repos.forEach(repo => {
-      const lang = repo.language || '';
-      const icon = ICONS[lang] || ICONS.default;
-      const langClass = LANG_CLASS[lang] || '';
-      const stars = repo.stargazers_count;
-      const desc = repo.description || 'No description provided.';
-
-      const card = document.createElement('a');
-      card.href = repo.html_url;
-      card.target = '_blank';
-      card.rel = 'noopener noreferrer';
-      card.className = 'project-card';
-      card.innerHTML = `
-        <div class="project-card-header">
-          <span class="project-icon">${icon}</span>
-          <span class="project-star">⭐ ${stars}</span>
-        </div>
-        <div class="project-name">${repo.name}</div>
-        <div class="project-desc">${desc.length > 90 ? desc.slice(0,90)+'…' : desc}</div>
-        <div class="project-footer">
-          ${lang ? `<span class="project-lang ${langClass}">${lang}</span>` : ''}
-          ${repo.fork ? '<span class="project-lang">fork</span>' : ''}
-        </div>
+      const repos = projectsCache || [];
+      const cards = repos.map(repo => {
+        const lang = repo.language || '';
+        const stars = repo.stargazers_count;
+        const desc = repo.description || 'No description.';
+        return `
+          <a class="project-card" href="${repo.html_url}" target="_blank" rel="noopener">
+            <div style="display:flex; justify-content:space-between;">
+              <span>📦 ${repo.name}</span>
+              <span>⭐ ${stars}</span>
+            </div>
+            <div style="font-size:0.8rem; margin:0.5rem 0; color:#666;">${desc.substring(0,90)}…</div>
+            <div><span class="skill-tag" style="font-size:0.65rem;">${lang || 'code'}</span></div>
+          </a>
+        `;
+      }).join('');
+      return `
+        <section>
+          <div class="section-label">~/github repos</div>
+          <div class="projects-grid">
+            ${cards || '<p>No repositories found.</p>'}
+          </div>
+        </section>
       `;
-      grid.appendChild(card);
+    }
+
+    function renderStack() {
+      return `
+        <section>
+          <div class="section-label">~/tech stack</div>
+          <div><strong>Core:</strong> JavaScript, TypeScript, Python, PHP, C++</div>
+          <div class="skill-tags">
+            <span class="skill-tag">React</span><span class="skill-tag">Next.js</span><span class="skill-tag">Node.js</span>
+            <span class="skill-tag">MongoDB</span><span class="skill-tag">Tailwind</span><span class="skill-tag">Docker</span>
+            <span class="skill-tag">AWS</span><span class="skill-tag">Firebase</span><span class="skill-tag">OWASP</span>
+          </div>
+          <div style="margin-top:2rem;"><strong>Specialties:</strong> Cybersecurity, Digital Forensics, AI Anomaly Detection, Payment Integration</div>
+        </section>
+      `;
+    }
+
+    function renderAbout() {
+      return `
+        <section>
+          <div class="section-label">~/about</div>
+          <div class="bio-text">
+            <p>Software Engineer with 5+ years of professional experience designing high‑performance APIs and secure web applications. My background in Cybersecurity and Digital Forensics enables a "security‑first" approach.</p>
+            <p><strong>Professional Focus:</strong> MERN stack, real‑time e‑commerce, containerisation (Docker), and supply chain security research.</p>
+            <p>Open to collaborating on challenging tech projects — <a href="mailto:cyberdachh@proton.me">get in touch →</a></p>
+          </div>
+          <div class="stats-grid" style="margin-top:2rem;">
+            <div class="stat-img"><img src="https://github-readme-stats.vercel.app/api?username=dach-a&show_icons=true&theme=radical&hide_border=true" loading="lazy"></div>
+            <div class="stat-img"><img src="https://github-readme-streak-stats.herokuapp.com/?user=dach-a&theme=radical&hide_border=true" loading="lazy"></div>
+            <div class="stat-img" style="grid-column:1/-1"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=dach-a&layout=compact&theme=radical&hide_border=true" loading="lazy"></div>
+          </div>
+        </section>
+      `;
+    }
+
+    async function renderView(route) {
+      let html = '';
+      switch(route) {
+        case 'home':     html = renderHome(); break;
+        case 'projects': html = await renderProjects(); break;
+        case 'stack':    html = renderStack(); break;
+        case 'about':    html = renderAbout(); break;
+        default:         html = renderHome();
+      }
+      container.innerHTML = html;
+    }
+
+    // Handle navigation clicks
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const route = link.dataset.route;
+        navigate(route);
+      });
     });
-  } catch (err) {
-    loading.textContent = '⚠️ Could not load repositories. View them on GitHub →';
-    loading.innerHTML += ' <a href="https://github.com/dach-a" target="_blank" style="color:var(--secondary)">github.com/dach-a</a>';
-  }
-}
-loadProjects();
 
-/* ═══════════════════════════════════════════════════════════════
-   SCROLL QUOTE
-═══════════════════════════════════════════════════════════════ */
-(function initQuote() {
-  const quoteEl = document.querySelector('.scroll-quote');
-  async function fetchQuote() {
-    try {
-      const res = await fetch(`https://api.quotable.io/random?tags=technology,famous-quotes&maxLength=120&_=${Date.now()}`);
-      const data = await res.json();
-      if (!data || !data.content) throw new Error();
-      quoteEl.classList.add('scroll-out');
-      setTimeout(() => {
-        quoteEl.classList.remove('scroll-out');
-        quoteEl.textContent = `"${data.content}" — ${data.author}`;
-        quoteEl.classList.add('scroll-in');
-      }, 500);
-    } catch {
-      quoteEl.textContent = '"Great minds discuss ideas." — Eleanor Roosevelt';
+    // Initial load based on hash or default
+    function initRouter() {
+      const hash = window.location.hash.slice(1) || 'home';
+      navigate(hash);
+      window.addEventListener('hashchange', () => {
+        const newRoute = window.location.hash.slice(1) || 'home';
+        if (newRoute !== currentRoute) {
+          navigate(newRoute);
+        }
+      });
     }
-  }
-  fetchQuote();
-  setInterval(fetchQuote, 45000);
-})();
+    initRouter();
 
-/* ═══════════════════════════════════════════════════════════════
-   NAV ACTIVE STATE
-═══════════════════════════════════════════════════════════════ */
-const navLinks = document.querySelectorAll('.top-nav a');
-const sections = document.querySelectorAll('section[id]');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      navLinks.forEach(l => l.classList.remove('active'));
-      const active = document.querySelector(`.top-nav a[href="#${e.target.id}"]`);
-      if (active) active.classList.add('active');
-    }
-  });
-}, { threshold: 0.4, root: document.querySelector('.right_panel') });
-sections.forEach(s => observer.observe(s));
+    // Make internal hash links work (like "about me" link in home)
+    document.addEventListener('click', e => {
+      if (e.target.tagName === 'A' && e.target.getAttribute('href')?.startsWith('#')) {
+        e.preventDefault();
+        const route = e.target.getAttribute('href').slice(1);
+        navigate(route);
+      }
+    });
+
+  })();
 </script>
-
-</body>
-</html>            </nav>
-
-            <section class="hero-content">
-                <h1><strong>Dachel Akyerefi</strong> is a software engineer focused on designing high-performance APIs and building scalable web applications.</h1>
-                
-                <div class="metadata-grid">
-                    <div class="meta-item">
-                        <h3>LOCATION</h3>
-                        <p>Accra, Ghana</p>
-                    </div>
-                    <div class="meta-item">
-                        <h3>EDUCATION</h3>
-                        <p>MSc. Cybersecurity</p>
-                        <p>BSc. Telecoms</p>
-                    </div>
-                    <div class="meta-item">
-                        <h3>COMPANIES</h3>
-                        <p><a href="#">Nano Link Services</a></p>
-                        <p><a href="#">Electoral Commission</a></p>
-                        <p><a href="#">SWAP Telecoms</a></p>
-                    </div>
-                </div>
-
-                <div class="bio-text">
-                    <p>Welcome! Please make yourself at home.</p>
-                    <p>I have spent the last 5 years building and maintaining production-ready MERN stack applications. Right now, I’m focused on building auto-cooldown AI for data engineering and developing scalable CMS platforms for institutional clients.</p>
-                    <p>Feel free to view <a href="#">my resume</a>, browse <a href="https://github.com/dach-a">my projects</a>, or learn more <a href="#">about me</a>.</p>
-                </div>
-            </section>
-        </div>
-    </div>
-    <script src="main.js"></script>
 </body>
 </html>
