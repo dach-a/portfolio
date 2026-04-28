@@ -43,10 +43,10 @@ Open to collaborating on projects that sit at the intersection of security resea
 ### 📊 Activity Metrics
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=dach-a&show_icons=true&theme=radical&hide_border=true" width="48%" alt="Dach's GitHub Stats" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=dach-a&theme=radical&hide_border=true" width="48%" alt="Dach's Streak" />
+  <img src="https://github-readme-stats.vercel.app/api?username=cyberd4ch&show_icons=true&theme=radical&hide_border=true" width="48%" alt="cyberd4ch GitHub Stats" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=cyberd4ch&theme=radical&hide_border=true" width="48%" alt="cyberd4ch Streak" />
 </p>
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=dach-a&layout=compact&theme=radical&hide_border=true" width="70%" alt="Top Languages" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=cyberd4ch&layout=compact&theme=radical&hide_border=true" width="70%" alt="Top Languages" />
 </p>
